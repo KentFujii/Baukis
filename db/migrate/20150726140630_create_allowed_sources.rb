@@ -2,10 +2,10 @@ class CreateAllowedSources < ActiveRecord::Migration
   def change
     create_table :allowed_sources do |t|
       t.string :namespace, null: false
-      t.string :octet1, null: false
-      t.string :octet2, null: false
-      t.string :octet3, null: false
-      t.string :octet4, null: false
+      t.integer :octet1, null: false
+      t.integer :octet2, null: false
+      t.integer :octet3, null: false
+      t.integer :octet4, null: false
       t.boolean :wildcard, null: false, default: false
 
       t.timestamps null: false

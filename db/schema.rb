@@ -50,10 +50,10 @@ ActiveRecord::Schema.define(version: 20150726140630) do
 
   create_table "allowed_sources", force: :cascade do |t|
     t.string   "namespace",                  null: false
-    t.string   "octet1",                     null: false
-    t.string   "octet2",                     null: false
-    t.string   "octet3",                     null: false
-    t.string   "octet4",                     null: false
+    t.integer  "octet1",                     null: false
+    t.integer  "octet2",                     null: false
+    t.integer  "octet3",                     null: false
+    t.integer  "octet4",                     null: false
     t.boolean  "wildcard",   default: false, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
