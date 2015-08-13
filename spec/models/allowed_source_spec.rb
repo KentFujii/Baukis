@@ -24,7 +24,7 @@ describe AllowedSource do
 
     example '引数に不正な文字列を与えた場合' do
       src = AllowedSource.new(namespace: 'staff', ip_address: 'A.B.C.D')
-      expect(src).to be_valid
+      expect(src).not_to be_valid
     end
   end
 

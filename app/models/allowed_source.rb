@@ -19,7 +19,7 @@ class AllowedSource < ActiveRecord::Base
   validates :octet4,
     uniqueness: { scope: [ :octet1, :octet2, :octet3 ], allow_blank: true }
   validates :last_octet,
-    inclusion: { in: (0..255).to_a.map(&:to_s) + [ '*' ], allowed_blank: true }
+    inclusion: { in: (0..255).to_a.map(&:to_s) + [ '*' ], allow_blank: true }
 
   after_validation do
     if last_octet
@@ -31,14 +31,14 @@ class AllowedSource < ActiveRecord::Base
 
   def ip_address=(ip_address)
     octets = ip_address.split('.')
-    self.octet1 = octets[0].to_i
-    self.octet2 = octets[1].to_i
-    self.octet3 = octets[2].to_i
+    self.octet1 = octets[0]
+    self.octet2 = octets[1]
+    self.octet3 = octets[2]
     if octets[3] == '*'
       self.octet4 = 0
       self.wildcard = true
     else
-      self.octet4 = octets[3].to_i
+      self.octet4 = octets[3]
     end
   end
 
