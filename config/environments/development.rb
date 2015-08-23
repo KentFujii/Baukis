@@ -20,7 +20,7 @@ Rails.application.configure do
   config.guild = {
     staff: { host: 'guild.example.com', path: '' },
     admin: { host: 'guild.example.com', path: 'admin' },
-    customer: { host: 'example.com', path: 'mypage' },
+    customer: { host: 'mypage.example.com', path: '' },
     restrict_ip_addresses: false
   }
 

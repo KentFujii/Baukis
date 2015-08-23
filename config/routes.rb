@@ -24,7 +24,7 @@ Rails.application.routes.draw do
         resources :staff_events, only: [ :index ]
       end
       resources :staff_events, only: [ :index ]
-      resources :allowed_sources, only:[ :index, :create ] do
+      resources :allowed_sources, only: [ :index, :create ] do
         delete :delete, on: :collection
       end
     end
@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       root 'top#index'
       get 'login' => 'sessions#new', as: :login
       resource :session, only: [ :create, :destroy ]
+      resources :programs, only: [ :index, :show ]
     end
   end
 
