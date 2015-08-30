@@ -2,11 +2,10 @@ class Customer::AccountForm
   include ActiveModel::Model
 
   attr_accessor :customer, :inputs_home_address, :inputs_work_address
-  delegate :persisted?, :save, to: :customer
+  delegate :persisted?, :valid?, :save, to: :customer
 
-  def initialize(customer = nil)
+  def initialize(customer)
     @customer = customer
-    @customer ||= Customer.new(gender: 'male')
     (2 - @customer.personal_phones.size).times do
       @customer.personal_phones.build
     end
@@ -17,12 +16,15 @@ class Customer::AccountForm
     (2 - @customer.home_address.phones.size).times do
       @customer.home_address.phones.build
     end
+    (2 - @customer.work_address.phones.size).times do
+      @customer.work_address.phones.build
+    end
   end
 
   def assign_attributes(params = {})
     @params = params
-    self.inputs_home_address = params[:inputs_home_address] == '1'
-    self.inputs_work_address = params[:inputs_work_address] == '1'
+    self.inputs_home_address = params[:inputs_home_address].in? [ '1', 'true' ]
+    self.inputs_work_address = params[:inputs_work_address].in? [ '1', 'true' ]
 
     customer.assign_attributes(customer_params)
 
@@ -53,6 +55,16 @@ class Customer::AccountForm
     end
     if inputs_work_address
       customer.work_address.assign_attributes(work_address_params)
+
+      phones = phone_params(:work_address).fetch(:phones)
+      customer.work_address.phones.size.times do |index|
+        attributes = phones[index.to_s]
+        if attributes && attributes[:number].present?
+          customer.work_address.phones[index].assign_attributes(attributes)
+        else
+          customer.work_address.phones[index].mark_for_destruction
+        end
+      end
     else
       customer.work_address.mark_for_destruction
     end
@@ -61,7 +73,6 @@ class Customer::AccountForm
   private
   def customer_params
     @params.require(:customer).permit(
-      :email, :password,
       :family_name, :given_name, :family_name_kana, :given_name_kana,
       :birthday, :gender
     )
