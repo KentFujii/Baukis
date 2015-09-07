@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'ギルドメンバーによるコラボレーター電話番号管理' do
+feature '職員による顧客電話番号管理' do
   include FeaturesSpecHelper
   let(:staff_member) { create(:staff_member) }
   let!(:customer) { create(:customer) }
@@ -10,8 +10,8 @@ feature 'ギルドメンバーによるコラボレーター電話番号管理' 
     login_as_staff_member(staff_member)
   end
 
-  scenario 'ギルドメンバーがコラボレーターの電話番号を追加する' do
-    click_link 'コラボレーター管理'
+  scenario '職員が顧客の電話番号を追加する' do
+    click_link '顧客管理'
     first('table.listing').click_link '編集'
 
     fill_in 'form_customer_phones_0_number', with: '090-9999-9999'
@@ -23,8 +23,8 @@ feature 'ギルドメンバーによるコラボレーター電話番号管理' 
     expect(customer.personal_phones[0].number).to eq('090-9999-9999')
   end
 
-  scenario 'ギルドメンバーがコラボレーターの自宅電話番号を追加する' do
-    click_link 'コラボレーター管理'
+  scenario '職員が顧客の自宅電話番号を追加する' do
+    click_link '顧客管理'
     first('table.listing').click_link '編集'
 
     fill_in 'form_home_address_phones_0_number', with: '03-9999-9999'

@@ -13,7 +13,7 @@ describe Admin::StaffMembersController do
   end
 
   describe '#create' do
-    example 'ギルドメンバー一覧ページにリダイレクト' do
+    example '職員一覧ページにリダイレクト' do
       post :create, staff_member: params_hash
       expect(response).to redirect_to(admin_staff_members_url)
     end

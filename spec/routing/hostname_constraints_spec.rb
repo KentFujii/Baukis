@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'ルーティング' do
-  example 'ギルドメンバートップページ' do
+  example '職員トップページ' do
     expect(get: 'http://guild.example.com').to route_to(
       host: 'guild.example.com',
       controller: 'staff/top',

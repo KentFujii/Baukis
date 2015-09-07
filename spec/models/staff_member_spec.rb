@@ -59,7 +59,7 @@ describe StaffMember do
       expect(member).to be_valid
     end
 
-    example '他のギルドメンバーのメールアドレスと重複したemailは無効' do
+    example '他の職員のメールアドレスと重複したemailは無効' do
       member1 = create(:staff_member)
       member2 = build(:staff_member, email: member1.email)
       expect(member2).not_to be_valid

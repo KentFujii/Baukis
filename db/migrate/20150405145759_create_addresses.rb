@@ -1,7 +1,7 @@
 class CreateAddresses < ActiveRecord::Migration
   def change
     create_table :addresses do |t|
-      t.references :customer, null: false               # コラボレーターへの外部キー
+      t.references :customer, null: false               # 顧客への外部キー
       t.string :type, null: false                       # 継承カラム
       t.string :postal_code, null: false                # 郵便番号
       t.string :prefecture, null: false                 # 都道府県

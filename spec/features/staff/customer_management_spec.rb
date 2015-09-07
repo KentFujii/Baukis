@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'ギルドメンバーによるコラボレーター管理' do
+feature '職員による顧客管理' do
   include FeaturesSpecHelper
   let(:staff_member) { create(:staff_member) }
   let!(:customer) { create(:customer) }
@@ -10,10 +10,10 @@ feature 'ギルドメンバーによるコラボレーター管理' do
     login_as_staff_member(staff_member)
   end
 
-  scenario 'ギルドメンバーがコラボレーター（基本情報のみ）を追加する' do
+  scenario '職員が顧客（基本情報のみ）を追加する' do
     # puts "#{staff_member.email}"
-    expect(page).to have_content('コラボレーター管理')
-    click_on 'コラボレーター管理'
+    expect(page).to have_content('顧客管理')
+    click_on '顧客管理'
     first('div.links').click_link '新規登録'
     fill_in 'メールアドレス', with: 'test@example.jp'
     fill_in 'パスワード', with: 'pw'
@@ -33,8 +33,8 @@ feature 'ギルドメンバーによるコラボレーター管理' do
     expect(new_customer.work_address).to be_nil
   end
 
-  scenario 'ギルドメンバーがコラボレーター、自宅住所、勤務先を追加する' do
-    click_link 'コラボレーター管理'
+  scenario '職員が顧客、自宅住所、勤務先を追加する' do
+    click_link '顧客管理'
     first('div.links').click_link '新規登録'
 
     fill_in 'メールアドレス', with: 'test@example.jp'
@@ -73,8 +73,8 @@ feature 'ギルドメンバーによるコラボレーター管理' do
     expect(new_customer.work_address.company_name).to eq('テスト')
   end
 
-  scenario 'ギルドメンバーがコラボレーター、自宅住所、勤務先を更新する' do
-    click_link 'コラボレーター管理'
+  scenario '職員が顧客、自宅住所、勤務先を更新する' do
+    click_link '顧客管理'
     first('table.listing').click_link '編集'
 
     fill_in 'メールアドレス', with: 'test@example.jp'
@@ -92,8 +92,8 @@ feature 'ギルドメンバーによるコラボレーター管理' do
     expect(customer.work_address.company_name).to eq('テスト')
   end
 
-  scenario 'ギルドメンバーが生年月日と自宅の郵便番号に無効な値を入力する' do
-    click_link 'コラボレーター管理'
+  scenario '職員が生年月日と自宅の郵便番号に無効な値を入力する' do
+    click_link '顧客管理'
     first('table.listing').click_link '編集'
 
     fill_in '生年月日', with: '2100-01-01'

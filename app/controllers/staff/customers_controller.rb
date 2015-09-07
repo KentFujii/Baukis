@@ -20,7 +20,7 @@ class Staff::CustomersController < Staff::Base
     @customer_form = Staff::CustomerForm.new
     @customer_form.assign_attributes(params[:form])
     if @customer_form.save
-      flash.notice = 'コラボレーターを追加しました。'
+      flash.notice = '顧客を追加しました。'
       redirect_to action: 'index'
     else
       flash.now.alert = '入力に誤りがあります。'
@@ -32,7 +32,7 @@ class Staff::CustomersController < Staff::Base
     @customer_form = Staff::CustomerForm.new(Customer.find(params[:id]))
     @customer_form.assign_attributes(params[:form])
     if @customer_form.save
-      flash.notice = 'コラボレーター情報を更新しました。'
+      flash.notice = '顧客情報を更新しました。'
       redirect_to action: 'index'
     else
       flash.now.alert = '入力に誤りがあります。'
@@ -43,7 +43,7 @@ class Staff::CustomersController < Staff::Base
   def destroy
     customer = Customer.find(params[:id])
     customer.destroy!
-    flash.notice = 'コラボレーターアカウントを削除しました。'
+    flash.notice = '顧客アカウントを削除しました。'
     redirect_to :staff_customers
   end
 end

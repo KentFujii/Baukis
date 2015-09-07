@@ -20,7 +20,7 @@ class Admin::StaffMembersController < Admin::Base
   def create
     @staff_member = StaffMember.new(staff_member_params)
     if @staff_member.save
-      flash.notice = 'ギルドメンバーアカウントを新規登録しました。'
+      flash.notice = '職員アカウントを新規登録しました。'
       redirect_to :admin_staff_members
     else
       render action: 'new'
@@ -31,7 +31,7 @@ class Admin::StaffMembersController < Admin::Base
     @staff_member = StaffMember.find(params[:id])
     @staff_member.assign_attributes(staff_member_params)
     if @staff_member.save
-      flash.notice = 'ギルドメンバーアカウントを更新しました。'
+      flash.notice = '職員アカウントを更新しました。'
       redirect_to :admin_staff_members
     else
       render action: 'edit'
@@ -42,7 +42,7 @@ class Admin::StaffMembersController < Admin::Base
     staff_member = StaffMember.find(params[:id])
     if staff_member.deletable?
       staff_member.destroy!
-      flash.notice = 'ギルドメンバーアカウントを削除しました。'
+      flash.notice = '職員アカウントを削除しました。'
     else
       flash.alert = 'この職員アカウントは削除できません。'
     end
