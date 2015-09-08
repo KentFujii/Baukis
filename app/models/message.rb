@@ -15,5 +15,14 @@ class Message < ActiveRecord::Base
     end
   end
 
-  default_scope { order(created_at:  :desc) }
+  default_scope { order(created_at: :desc) }
+
+  attr_accessor :child_nodes
+
+  def tree
+    return @tree if @tree
+    r = root || self
+    messages = Message.where(root_id: r.id).select(:id, :parent_id, :subject)
+    @tree = SimpleTree.new(r, messages)
+  end
 end
