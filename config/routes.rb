@@ -21,7 +21,7 @@ Rails.application.routes.draw do
         end
       end
       resources :tags, only: [] do
-        resources :tags, only: [ :index ] do
+        resources :messages, only: [ :index ] do
           get :inbound, :outbound, :deleted, on: :collection
         end
       end
