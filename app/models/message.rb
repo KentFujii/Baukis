@@ -53,6 +53,6 @@ class Message < ActiveRecord::Base
           tag.destroy
         end
       end
-    end    
+    end
   end
 end
