@@ -3,6 +3,11 @@ class Staff::MessagesController < Staff::Base
 
   def index
     @messages = Message.where(deleted: false).page(params[:page])
+    if params[:tag_id]
+      @messages = @messages.joins(:message_tag_links)
+        .where('message_tag_links.tag_id' => params[:tag_id])
+    end
+    @messages = @messages.page(params[:page])  
   end
 
   #GET
@@ -37,5 +42,18 @@ class Staff::MessagesController < Staff::Base
     message.update_column(:deleted, true)
     flash.notice = '問い合わせを削除しました。'
     redirect_to :back
+  end
+
+  #POST/DELETE
+  def tag
+    message = CustomerMessage.find(params[:id])
+    if request.post?
+      message.add_tag(params[:label])
+    elsif request.delete?
+      message.remove_tag(params[:label])
+    else
+      raise
+    end
+    render text: 'OK'
   end
 end
