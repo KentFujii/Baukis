@@ -17,9 +17,9 @@ Rails.application.configure do
 
   config.assets.raise_runtime_errors = true
 
-  config.guild = {
-    staff: { host: 'guild.example.com', path: '' },
-    admin: { host: 'guild.example.com', path: 'admin' },
+  config.baukis = {
+    staff: { host: 'baukis.example.com', path: '' },
+    admin: { host: 'baukis.example.com', path: 'admin' },
     customer: { host: 'mypage.example.com', path: '' },
     restrict_ip_addresses: false
   }

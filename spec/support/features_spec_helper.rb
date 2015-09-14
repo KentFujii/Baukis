@@ -1,6 +1,6 @@
 module FeaturesSpecHelper
   def switch_namespace(namespace)
-    config = Rails.application.config.guild
+    config = Rails.application.config.baukis
     Capybara.app_host = 'http://' + config[namespace][:host]
   end
 

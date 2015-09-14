@@ -44,7 +44,7 @@ class AllowedSource < ActiveRecord::Base
 
   class << self
     def include?(namespace, ip_address)
-      !Rails.application.config.guild[:restrict_ip_addresses] ||
+      !Rails.application.config.baukis[:restrict_ip_addresses] ||
         where(namespace: namespace).where(options_for(ip_address)).exists?
     end
 

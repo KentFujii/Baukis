@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  config = Rails.application.config.guild
+  config = Rails.application.config.baukis
 
   constraints host: config[:staff][:host] do
     namespace :staff, path: config[:staff][:path] do

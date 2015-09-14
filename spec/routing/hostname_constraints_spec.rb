@@ -2,16 +2,16 @@ require 'rails_helper'
 
 describe 'ルーティング' do
   example '職員トップページ' do
-    expect(get: 'http://guild.example.com').to route_to(
-      host: 'guild.example.com',
+    expect(get: 'http://baukis.example.com').to route_to(
+      host: 'baukis.example.com',
       controller: 'staff/top',
       action: 'index'
     )
   end
 
   example 'アドミンメンバーログインフォーム' do
-    expect(get: 'http://guild.example.com/admin/login').to route_to(
-      host: 'guild.example.com',
+    expect(get: 'http://baukis.example.com/admin/login').to route_to(
+      host: 'baukis.example.com',
       controller: 'admin/sessions',
       action: 'new'
     )

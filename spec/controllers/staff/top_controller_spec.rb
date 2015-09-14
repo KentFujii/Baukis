@@ -5,7 +5,7 @@ describe Staff::TopController, 'ログイン前' do
 
   describe 'IPアドレスによるアクセス制限' do
     before do
-      Rails.application.config.guild[:restrict_ip_addresses] = true
+      Rails.application.config.baukis[:restrict_ip_addresses] = true
     end
 
     example '許可' do

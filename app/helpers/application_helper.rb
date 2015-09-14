@@ -3,9 +3,9 @@ module ApplicationHelper
 
   def document_title
     if @title.present?
-      "#{@title} - Outlaw Guild"
+      "#{@title} - Baukis"
     else
-      'Outlaw Guild'
+      'Baukis'
     end
   end
 end

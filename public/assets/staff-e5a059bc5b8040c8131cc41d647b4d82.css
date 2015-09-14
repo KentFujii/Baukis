@@ -1,4 +1,4 @@
-@charset "UTF-8";/* line 4, /Users/Kent/work/guild/app/assets/stylesheets/shared/errors.css.scss */
+@charset "UTF-8";/* line 4, /Users/Kent/work/baukis/app/assets/stylesheets/shared/errors.css.scss */
 div#error {
   width: 600;
   margin: 20px auto;
@@ -7,7 +7,7 @@ div#error {
   background-color: #fafafa;
   text-align: center;
 }
-/* line 11, /Users/Kent/work/guild/app/assets/stylesheets/shared/errors.css.scss */
+/* line 11, /Users/Kent/work/baukis/app/assets/stylesheets/shared/errors.css.scss */
 div#error p.url {
   font-family: monospace;
 }
@@ -24,7 +24,7 @@ div#error p.url {
 /* マージン、パディング */
 /* フォントサイズ */
 /* 行の高さ */
-/* line 6, /Users/Kent/work/guild/app/assets/stylesheets/staff/container.css.scss */
+/* line 6, /Users/Kent/work/baukis/app/assets/stylesheets/staff/container.css.scss */
 div#wrapper div#container h1 {
   margin: 0;
   padding: 9px 6px;
@@ -39,14 +39,14 @@ div#wrapper div#container h1 {
 /* マージン、パディング */
 /* フォントサイズ */
 /* 行の高さ */
-/* line 4, /Users/Kent/work/guild/app/assets/stylesheets/staff/layout.css.scss */
+/* line 4, /Users/Kent/work/baukis/app/assets/stylesheets/staff/layout.css.scss */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
-/* line 9, /Users/Kent/work/guild/app/assets/stylesheets/staff/layout.css.scss */
+/* line 9, /Users/Kent/work/baukis/app/assets/stylesheets/staff/layout.css.scss */
 div#wrapper {
   position: relative;
   min-height: 100%;
@@ -55,18 +55,18 @@ div#wrapper {
   background-color: #cccccc;
 }
 
-/* line 16, /Users/Kent/work/guild/app/assets/stylesheets/staff/layout.css.scss */
+/* line 16, /Users/Kent/work/baukis/app/assets/stylesheets/staff/layout.css.scss */
 header {
   padding: 6px;
   background-color: #448888;
   color: #fafafa;
 }
-/* line 20, /Users/Kent/work/guild/app/assets/stylesheets/staff/layout.css.scss */
+/* line 20, /Users/Kent/work/baukis/app/assets/stylesheets/staff/layout.css.scss */
 header span.logo-mark {
   font-weight: bold;
 }
 
-/* line 24, /Users/Kent/work/guild/app/assets/stylesheets/staff/layout.css.scss */
+/* line 24, /Users/Kent/work/baukis/app/assets/stylesheets/staff/layout.css.scss */
 footer {
   bottom: 0;
   position: absolute;
@@ -74,7 +74,7 @@ footer {
   background-color: #666666;
   color: #fafafa;
 }
-/* line 30, /Users/Kent/work/guild/app/assets/stylesheets/staff/layout.css.scss */
+/* line 30, /Users/Kent/work/baukis/app/assets/stylesheets/staff/layout.css.scss */
 footer p {
   text-align: center;
   padding: 6px;
