@@ -1,16 +1,12 @@
-default: &default
+development: &default
   adapter: postgresql
   encoding: unicode
+  database: baukis_development
   pool: 5
-
-development:
-  <<: *default
-  database: dotreserve_development
+  username: postgres
+  password:
+  host: db
 
 test:
   <<: *default
-  database: dotreserve_test
-
-production:
-  <<: *default
-  database: dotreserve_production
+  database: baukis_test

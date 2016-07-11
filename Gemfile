@@ -30,6 +30,6 @@ group :test do
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'rspec-rails', '~> 3.3.0'
   gem 'capybara', '~> 2.4.4'
-  gem 'poltergeist', git: 'git@github.com:teampoltergeist/poltergeist.git'
+  gem 'poltergeist' #, git: 'git@github.com:teampoltergeist/poltergeist.git'
   gem 'launchy'
 end
