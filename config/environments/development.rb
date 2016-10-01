@@ -17,11 +17,11 @@ Rails.application.configure do
 
   config.assets.raise_runtime_errors = true
 
-  config.baukis = {
-    staff: { host: 'baukis.example.com', path: '' },
-    admin: { host: 'baukis.example.com', path: 'admin' },
-    customer: { host: 'mypage.example.com', path: '' },
-    restrict_ip_addresses: false
-  }
+  # config.baukis = {
+  #   staff: { host: 'baukis.example.com', path: '' },
+  #   admin: { host: 'baukis.example.com', path: 'admin' },
+  #   customer: { host: 'mypage.example.com', path: '' },
+  #   restrict_ip_addresses: false
+  # }
 
 end

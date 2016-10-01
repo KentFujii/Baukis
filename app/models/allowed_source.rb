@@ -42,20 +42,20 @@ class AllowedSource < ActiveRecord::Base
     end
   end
 
-  class << self
-    def include?(namespace, ip_address)
-      !Rails.application.config.baukis[:restrict_ip_addresses] ||
-        where(namespace: namespace).where(options_for(ip_address)).exists?
-    end
-
-    private
-    def options_for(ip_address)
-      octets = ip_address.split('.')
-      condition = %Q{
-        octet1 = ? AND octet2 = ? AND octet3 = ?
-        AND ((octet4 = ? AND wildcard = ?) OR wildcard = ?)
-      }.gsub(/\s+/, ' ').strip
-      [ condition, *octets, false, true ]
-    end
-  end
+  # class << self
+  #   def include?(namespace, ip_address)
+  #     !Rails.application.config.baukis[:restrict_ip_addresses] ||
+  #       where(namespace: namespace).where(options_for(ip_address)).exists?
+  #   end
+  #
+  #   private
+  #   def options_for(ip_address)
+  #     octets = ip_address.split('.')
+  #     condition = %Q{
+  #       octet1 = ? AND octet2 = ? AND octet3 = ?
+  #       AND ((octet4 = ? AND wildcard = ?) OR wildcard = ?)
+  #     }.gsub(/\s+/, ' ').strip
+  #     [ condition, *octets, false, true ]
+  #   end
+  # end
 end

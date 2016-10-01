@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  config = Rails.application.config.baukis
+  # config = Rails.application.config.baukis
 
-  constraints host: config[:staff][:host] do
-    namespace :staff, path: config[:staff][:path] do
+  # constraints host: config[:staff][:host] do
+    namespace :staff do #, path: config[:staff][:path] do
       root 'top#index'
       get 'login' => 'sessions#new', as: :login
       resource :session, only: [ :create, :destroy ]
@@ -26,10 +26,10 @@ Rails.application.routes.draw do
         end
       end
     end
-  end
+  # end
 
-  constraints host: config[:admin][:host] do
-    namespace :admin, path: config[:admin][:path] do
+  # constraints host: config[:admin][:host] do
+    namespace :admin do #, path: config[:admin][:path] do
       root 'top#index'
       get 'login' => 'sessions#new', as: :login
       resource :session, only: [ :create, :destroy ]
@@ -41,10 +41,10 @@ Rails.application.routes.draw do
         delete :delete, on: :collection
       end
     end
-  end
+  # end
 
-  constraints host: config[:customer][:host] do
-    namespace :customer, path: config[:customer][:path] do
+  # constraints host: config[:customer][:host] do
+    namespace :customer do #, path: config[:customer][:path] do
       root 'top#index'
       get 'login' => 'sessions#new', as: :login
       resource :session, only: [ :create, :destroy ]
@@ -60,7 +60,7 @@ Rails.application.routes.draw do
         post :confirm, on: :collection
       end
     end
-  end
+  # end
 
   root 'errors#not_found'
   get '*anything' => 'errors#not_found'
